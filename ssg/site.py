@@ -21,18 +21,14 @@ class Site:
             elif path.is_file():
                 self.run_parser(path)
 
-    #check back for valid parser usage
-
     def load_parser(self, extension):
         for parser in self.parsers:
             if parser.valid_extension(extension):
-                
+                return parser
 
-    def run_parser(self,path):
+    def run_parser(self, path):
         parser = self.load_parser(path.suffix)
         if parser is not None:
-            self.load_parser(parser)
-
-
-
-
+            parser.parse(path, self.source, self.dest)
+        else:
+            print('Not Implemented')
