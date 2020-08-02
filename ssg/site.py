@@ -18,6 +18,3 @@ class Site:
         for path in self.source.rglob('*'):
             if path.is_dir():
                 self.create_dir(path)
-                print(f'bulding path in {path}\n')
-            else:
-                print(f'this path {path} is not a dir')
